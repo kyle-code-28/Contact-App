@@ -1,8 +1,29 @@
+import React from "react";
 import './App.css';
+import Header from "./Header";
+import AddContact from "./AddContact";
+import ContactList from "./ContactList";
 
 function App() {
+
+  const contacts = [
+    {
+      id:"1",
+      "name":"Max",
+      "email":"Max@gmail.com"
+    },
+    {
+      id:"2",
+      "name":"John",
+      "email":"John@gmail.com"
+    },
+  ];
   return (
-    <div>Hello World</div>
+    <div style={ { marginTop: "50px" } }>
+      <Header />
+      <AddContact />
+      <ContactList contacts={contacts}/>
+    </div>
   );
 }
 
