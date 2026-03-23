@@ -27,12 +27,20 @@ function App() {
   }, [contacts]);
 
   return (
+    <div className="ui container" style={{ marginTop: "80px", maxWidth: "600px" }}>
+        <Header />
+        <AddContact addContactHandler={addContactHandler}/>
+        <ContactList contacts={contacts} getContactId={removeContactHandler} />
+    </div>
+);
+  /* return (
     <div style={ { marginTop: "50px" } }>
       <Header />
       <AddContact addContactHandler={addContactHandler}/>
       <ContactList contacts={contacts} getContactId= {removeContactHandler} />
     </div>
   );
+} */
 }
 
 export default App;
