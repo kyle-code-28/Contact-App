@@ -2,13 +2,28 @@
   "contacts": [
     {
       "id": "9b6c8adf-bc61-4589-9342-7dd9e38c474b",
-      "name": "emma",
+      "name": "emma emma",
       "email": "test@gmail.com"
     },
     {
       "id": "15f1e76b-5c51-4666-be93-9b05bca4e1ee",
-      "name": "grok",
+      "name": "grokgrok",
       "email": "grok@gmail.com"
+    },
+    {
+      "id": "ShZ9RpKAxaA",
+      "name": "max",
+      "email": "max@gmail.com"
+    },
+    {
+      "id": "0dnIbJspOQw",
+      "name": "makima",
+      "email": "test3@gmail.com"
+    },
+    {
+      "id": "YYuDXC9BW4g",
+      "name": "limp",
+      "email": "limp@gmail.com"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

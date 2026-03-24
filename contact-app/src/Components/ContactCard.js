@@ -32,7 +32,7 @@ const ContactCard = (props) => {
             <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "8px" }}>
                 <Link to={{pathname:`/edit`, state:{contact:props.contact}}}>
                     <i 
-                        className="edit outline icon"
+                        className="edit alternate outline icon"
                         style={{color:"blue", fontSize:"15px", lineHeight:"1", margin:"0"}}
                     ></i>
                 </Link>

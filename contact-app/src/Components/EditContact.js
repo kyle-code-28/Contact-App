@@ -18,15 +18,15 @@ class EditContact extends React.Component {
                 return;
             }
 
-            this.props.addContactHandler(this.state);
-            this.setState({name:"", email:""});
-            this.props.history.push("/");
+        this.props.updateContactHandler(this.state);
+        this.setState({name:"", email:""});
+        this.props.history.push("/");
             
         };
     render() {
         return (
         <div className="ui card" style={{ width: "100%", padding: "20px", marginBottom: "20px" }}>
-            <h2>Add Contact</h2>
+            <h2>Edit Contact</h2>
             <form className="ui form" onSubmit={this.update}>
                 <div className="field">
                     <label>Name</label>
@@ -46,7 +46,7 @@ class EditContact extends React.Component {
                     value={this.state.email}
                     onChange={(e) => this.setState({email: e.target.value})}/>
                 </div>
-                <button className="ui button blue">Add</button>
+                <button className="ui button blue">Update</button>
             </form>
         </div>
         );
