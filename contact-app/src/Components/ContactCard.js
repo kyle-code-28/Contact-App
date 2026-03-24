@@ -11,16 +11,37 @@ const ContactCard = (props) => {
          <div className="item" style={{ display: "flex", alignItems: "center" }}>
             <img className="ui avatar image" src={user} alt="user" />
                 <div className="content">
-                <Link to={{pathname:`/contact/${id}`, state:{contact:props.contact}}}>
+            <Link 
+                to={{pathname:`/contact/${id}`, state:{contact:props.contact}}}>
                     <div className="header">{name}</div>
                     <div>{email}</div>
                 </Link>
-                </div>
-                <i 
+            </div>
+            {/* <i 
                 className="trash alternate outline icon"
-                style={{color:"red", cursor: "pointer", marginLeft: "auto"}}
+                style={{color:"red", marginTop:"7px", marginLeft: "10px"}}
                 onClick= { () => setShowConfirm(true)}
-               ></i>
+            ></i>
+            <Link 
+               to={{pathname:`/edit`, state:{contact:props.contact}}}></Link>
+            <i 
+                className="edit alternate outline icon"
+                style={{color:"blue", marginTop:"7px"}}
+                onClick= { () => setShowConfirm(true)}
+            ></i> */}
+            <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "8px" }}>
+                <Link to={{pathname:`/edit`, state:{contact:props.contact}}}>
+                    <i 
+                        className="edit outline icon"
+                        style={{color:"blue", fontSize:"15px", lineHeight:"1", margin:"0"}}
+                    ></i>
+                </Link>
+                <i 
+                    className="trash alternate outline icon"
+                    style={{color:"red", fontSize:"15px", lineHeight:"1", margin:"0"}}
+                    onClick={() => setShowConfirm(true)}
+                ></i>
+            </div>
 
                 {showConfirm && (
                 <DeleteConfirm
