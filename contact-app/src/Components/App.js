@@ -26,7 +26,7 @@ function App() {
     }
 
     const response = await api.post("./contacts", request)
-    setContacts([...contacts, { id:uuid(), ...contact }]);
+    setContacts([...contacts, response.data]);
   };
 
   const removeContactHandler = (id) => {
