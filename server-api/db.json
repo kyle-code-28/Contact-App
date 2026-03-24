@@ -1,0 +1,27 @@
+{
+    "contacts":[
+        {
+            "id":"000e0428-1c1f-47d9-8684-f09cb15dddda",
+        "name":"max",
+        "email":"max@gmail.com"
+        },
+        
+        {
+            "id":"6b5d4300-4e64-4903-81b8-0ca857815d10",
+        "name":"test",
+        "email":"test@gmail.com"
+        },
+        
+        {
+            "id":"9b6c8adf-bc61-4589-9342-7dd9e38c474b",
+        "name":"emma",
+        "email":"test@gmail.com"
+        },
+        
+        {
+            "id":"15f1e76b-5c51-4666-be93-9b05bca4e1ee",
+        "name":"grok",
+        "email":"grok@gmail.com"
+        }
+    ]
+}
