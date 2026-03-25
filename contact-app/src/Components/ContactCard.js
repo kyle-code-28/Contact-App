@@ -8,12 +8,18 @@ const ContactCard = (props) => {
     const [showConfirm, setShowConfirm] = useState(false);
 
     return(
-         <div className="item" style={{ display: "flex", alignItems: "center" }}>
+         <div className="item" style={{ 
+            display: "flex", 
+            alignItems: "center",
+            borderBottom:"1px solid #e0e0e0",
+            padding:"8px 0",
+            margin:"0" 
+        }}>
             <img className="ui avatar image" src={user} alt="user" />
-                <div className="content">
+                <div className="content" style={{ marginLeft: "10px" }}> 
             <Link 
                 to={{pathname:`/contact/${id}`, state:{contact:props.contact}}}>
-                    <div className="header">{name}</div>
+                    <div className="header" style={{ color: "#000000", fontWeight: "bold" }}>{name}</div>
                     <div>{email}</div>
                 </Link>
             </div>

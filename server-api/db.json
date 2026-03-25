@@ -24,6 +24,11 @@
       "id": "YYuDXC9BW4g",
       "name": "limp",
       "email": "limp@gmail.com"
+    },
+    {
+      "id": "DfI11fBPm3A",
+      "name": "star",
+      "email": "okane@gmail.com"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -38,52 +38,52 @@
 }
 
 body {
-  background-color: #f4f7fb !important;
+  background-color: #ffffff !important;
 }
 
 .ui.fixed.menu {
-  background-color: #185FA5 !important;
+  background-color: #e1bb81 !important;
   color: white !important;
 }
 
 .ui.fixed.menu h2 {
-  color: white !important;
+  color: rgb(253, 253, 253) !important;
 }
 
 .ui.card {
-  border: 1px solid #dce6f0 !important;
+  border: 1px solid #6c8196 !important;
   box-shadow: 0 2px 8px rgba(24, 95, 165, 0.08) !important;
 }
 
 .ui.celled.list .item {
-  border-top: 1px solid #dce6f0 !important;
+  border-top: 1px solid #a7a0a0 !important;
 }
 
 .ui.circular.label {
-  background-color: #378ADD !important;
-  color: white !important;
+  background-color: #dca27b !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 .ui.button.blue {
-  background-color: #185FA5 !important;
+  background-color: #dca27b !important;
 }
 
 .ui.button.blue:hover {
-  background-color: #0C447C !important;
+  background-color: #d27135 !important;
 }
 
 .ui.button.red {
-  background-color: #c0392b !important;
+  background-color: #a93427 !important;
 }
 
 .content a {
-  color: #378ADD !important;
+  color: #dca27b !important;
 }
 
 .content a:hover {
-  color: #185FA5 !important;
+  color: #d27135 !important;
 }
 
 label {
-  color: #555 !important;
+  color: #5c5c5c !important;
 }

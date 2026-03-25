@@ -12,7 +12,8 @@ import EditContact from "./EditContact";
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState (JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []);
-  
+  const [searchTerm, setSearchTerm] = useState("");
+
   //RetrieveContacts
   const retrieveContacts = async () => {
     const response = await api.get("/contacts");
@@ -49,6 +50,14 @@ function App() {
     setContacts(newContactList);
   };
 
+  const searchHandler = (searchTerm) => {
+    setSearchTerm(searchTerm);
+  };
+
+  const filteredContacts = contacts.filter((contact) =>
+  contact.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   //The commented out is fetching data from local storage
   useEffect(() => {
     /* const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts)));
@@ -75,8 +84,10 @@ function App() {
           exact 
           render={(props) => (<ContactList 
             {...props} 
-            contacts={contacts} 
+            contacts={filteredContacts} 
             getContactId= {removeContactHandler}
+            term={searchTerm}
+            searchKeyword= {searchHandler}
             />
           )}
         />

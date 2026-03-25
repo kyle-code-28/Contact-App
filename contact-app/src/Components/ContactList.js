@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {Link} from 'react-router-dom';
 import ContactCard from "./ContactCard";
 
@@ -23,6 +23,7 @@ import ContactCard from "./ContactCard";
 
 
 const ContactList = (props) => {
+    const [searchTerm, setSearchTerm] = useState("");
     const renderContactList = props.contacts.map((contact) => {
         return (
             <ContactCard 
@@ -33,6 +34,7 @@ const ContactList = (props) => {
         );
     });
 
+    
     return (
         <div className="ui card" style={{ width: "100%", padding: "20px" }}>
             <h2>
@@ -41,10 +43,24 @@ const ContactList = (props) => {
                     <button className="ui button blue right" style={{ float:"right" }}>Add Contact</button>
                 </Link>
             </h2>
+        <div className="ui search" style={{ margin: "10px 0" }}>
+            <div className="ui icon input" style={{ width: "100%" }}>
+                <input 
+                    type="text"
+                    placeholder="Search contacts..."
+                    value={props.term}  //<- controlled by App.js
+                    onChange={(e) => props.searchKeyword(e.target.value)} 
+                    style={{ width: "100%" }}
+                />
+                <i 
+                className="search icon">
+                </i>
+            </div>
+        </div>
             <h3>
                 Contacts <span className="ui circular label">{props.contacts.length}</span>
             </h3>
-            <div className="ui celled list">
+             <div style={{ borderTop: "1px solid #614949"}}>
                 {renderContactList}
             </div>
         </div>
