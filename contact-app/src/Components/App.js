@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import {v4 as uuid} from 'uuid';
-import api from '../api/contacts';
+import api from "../api/contacts";
 import './App.css';
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 import ContactDetail from "./ContactDetail";
 import EditContact from "./EditContact";
+import { ContactsCrudContextProvider } from "../context/ContactsCrudContext";
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState (JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []);
   const [searchTerm, setSearchTerm] = useState("");
 
-  //RetrieveContacts
-  const retrieveContacts = async () => {
-    const response = await api.get("/contacts");
-    return response.data;
-  };
+  
 
   const addContactHandler = async (contact) => {
     console.log(contact);
@@ -58,17 +55,6 @@ function App() {
   contact.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  //The commented out is fetching data from local storage
-  useEffect(() => {
-    /* const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts)));
-    if (retriveContacts) setContacts(retriveContacts); */
-    const getALLContacts = async() => {
-      const allContacts = await retrieveContacts();
-      if(allContacts) setContacts(allContacts);
-    };
-
-    getALLContacts();
-  }, []);
 
   useEffect(() => {
     //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
@@ -78,39 +64,26 @@ function App() {
     <div className="ui container" style={{ marginTop: "80px", maxWidth: "600px" }}>
       <Router>
         <Header />
-        <Switch>
+        <ContactsCrudContextProvider>
+        <Routes>
           <Route 
           path = "/" 
-          exact 
-          render={(props) => (<ContactList 
-            {...props} 
-            contacts={filteredContacts} 
-            getContactId= {removeContactHandler}
-            term={searchTerm}
-            searchKeyword= {searchHandler}
-            />
-          )}
+          exact
+          element={<ContactList />}
         />
         <Route 
           path = "/add" 
-          render={(props) => (
-            <AddContact {...props} 
-            addContactHandler={addContactHandler} 
-            />
-          )}
+          element={<AddContact />}
         />
         
         <Route 
           path = "/edit" 
-          render={(props) => (
-            <EditContact {...props} 
-            updateContactHandler={updateContactHandler} 
-            />
-          )}
+          element={<EditContact />}
         />
 
-        <Route path="/contact/:id" component={ContactDetail} />
-        </Switch>
+        <Route path="/contact/:id" element={<ContactDetail />} />
+        </Routes>
+        </ContactsCrudContextProvider>
       </Router>
     </div>
 );

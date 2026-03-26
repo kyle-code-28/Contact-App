@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import ContactCard from "./ContactCard";
+import { useContactsCrud } from "../context/ContactsCrudContext";
 
 /* const ContactList = (props) => {
     console.log(props);
@@ -22,9 +23,15 @@ import ContactCard from "./ContactCard";
 };  */
 
 
-const ContactList = (props) => {
+    const ContactList = (props) => {
+    const {contacts, retrieveContacts} = useContactsCrud();
     const [searchTerm, setSearchTerm] = useState("");
-    const renderContactList = props.contacts.map((contact) => {
+    
+    useEffect(() => {
+        retrieveContacts();
+    },[]);
+
+    const renderContactList = contacts.map((contact) => {
         return (
             <ContactCard 
             key={contact.id} 
@@ -58,7 +65,7 @@ const ContactList = (props) => {
             </div>
         </div>
             <h3>
-                Contacts <span className="ui circular label">{props.contacts.length}</span>
+                Contacts <span className="ui circular label">{contacts.length}</span>
             </h3>
              <div style={{ borderTop: "1px solid #614949"}}>
                 {renderContactList}
